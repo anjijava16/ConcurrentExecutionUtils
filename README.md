@@ -12,6 +12,7 @@ Concurrency is the ability to do more than one thing at the same time.
 2. https://www.callicoder.com/java-concurrency-multithreading-basics/
 
 # Response codes sequenclly vs Concurrent execution 
+
 ## Sequence call
 1. API1 Response =>{"id":1,"firstName":"Roger","lastName":"Federer","email":"roger.federer@yomail.com"}
 2. API2 Response =>{"id":2,"firstName":"Rafael","lastName":"Nadal","email":"rafael.nadal@yomail.com"}
@@ -19,20 +20,20 @@ Concurrency is the ability to do more than one thing at the same time.
 ### Sequence call  response time = 578 millis
 
 ## Future 
-3. API1 Response =>{"id":1,"firstName":"Roger","lastName":"Federer","email":"roger.federer@yomail.com"}
-3. API2 Response =>{"id":2,"firstName":"Rafael","lastName":"Nadal","email":"rafael.nadal@yomail.com"}
+1. API1 Response =>{"id":1,"firstName":"Roger","lastName":"Federer","email":"roger.federer@yomail.com"}
+2. API2 Response =>{"id":2,"firstName":"Rafael","lastName":"Nadal","email":"rafael.nadal@yomail.com"}
 3. API3 Response =>{"id":2,"firstName":"Rafael","lastName":"Nadal","email":"rafael.nadal@yomail.com"}
 ### Future  response time = 32 millis
 
 ## Callable Executor No Lambda 
-#####################################
-3. API1 Response => {"id":2,"firstName":"Rafael","lastName":"Nadal","email":"rafael.nadal@yomail.com"}
-3. API2 Response => {"id":1,"firstName":"Roger","lastName":"Federer","email":"roger.federer@yomail.com"}
+1. API1 Response => {"id":2,"firstName":"Rafael","lastName":"Nadal","email":"rafael.nadal@yomail.com"}
+2. API2 Response => {"id":1,"firstName":"Roger","lastName":"Federer","email":"roger.federer@yomail.com"}
 3. API3 Response => {"id":3,"firstName":"John","lastName":"Mcenroe","email":"john.mcenroe@yomail.com"}
 ### Callable ExecutorServiceNoLambda  response time = 43 millis
 
 ## Callable Executor with Lambda 
-3. API1 Response => {"id":3,"firstName":"John","lastName":"Mcenroe","email":"john.mcenroe@yomail.com"}
-3. API2 Response => {"id":1,"firstName":"Roger","lastName":"Federer","email":"roger.federer@yomail.com"}
+1. API1 Response => {"id":3,"firstName":"John","lastName":"Mcenroe","email":"john.mcenroe@yomail.com"}
+2. API2 Response => {"id":1,"firstName":"Roger","lastName":"Federer","email":"roger.federer@yomail.com"}
 3. API3 Response => {"id":2,"firstName":"Rafael","lastName":"Nadal","email":"rafael.nadal@yomail.com"}
 ### Callable Lambda   response time = 13 millis
+
